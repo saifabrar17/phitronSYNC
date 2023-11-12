@@ -1,14 +1,12 @@
 #include <stdio.h>
 
-
 int main()
 {
-    long long eye, mouth, body;
-    long long doll1 = 0;
-    long long doll2 = 0;
-    long long doll3 = 0;
-    scanf("%lld %lld %lld", &eye, &mouth, &body);
-
+    int eye, mouth, body;
+    int doll1 = 0;
+    int doll2 = 0;
+    int doll3 = 0;
+    scanf("%d %d %d", &eye, &mouth, &body);
 
     // running test case 3
     if (eye >= 1 && mouth >= 1 && body >= 1)
@@ -47,12 +45,10 @@ int main()
         }
         // printf("d3 %d\n", doll3);
     }
-    long long total;
-
+    int total;
 
     total = doll1 + doll2 + doll3;
-    printf("%lld", total);
+    printf("%d", total);
     // printf("%d %d %d", eye, mouth, body);
     return 0;
 }
-
