@@ -9,20 +9,16 @@ int main()
     {
         cin >> v[i];
     }
+    int count = 0;
     for (int val : v)
     {
-        if (val < 0)
-        {
-            cout << 2 << " ";
-        }
-        else if (val == 0)
-        {
-            cout << 0 << " ";
-        }
-        else
-        {
-            cout << 1 << " ";
-        }
+        int next = val + 1;
+
+        auto it = find(v.begin(), v.end(), next);
+        if (it != v.end())
+            count++;
+        
     }
+    cout << count << " ";
     return 0;
 }
