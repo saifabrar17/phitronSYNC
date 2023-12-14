@@ -23,27 +23,18 @@ void insert_to_linked_list(Node *&head, Node *&tail, int v)
     tail->next = newNode;
     tail = newNode;
 }
-
-void print_linekd_list(Node *head)
-{
-    Node *tmp = head;
-    while (tmp != NULL)
-    {
-        cout << tmp->val << " ";
+void search_in_linked_list(Node* head, int x) {
+    int index = 0;
+    Node* tmp = head;
+    while (tmp != NULL) {
+        if (tmp->val == x) {
+            cout << index << endl;
+            return;
+        }
         tmp = tmp->next;
+        index++;
     }
-    cout << endl;
-}
-void search_in_linked_list(Node *head, int search)
-{
-     Node *tmp = head;
-    while (tmp != NULL)
-    {
-        cout << tmp->val << " ";
-        tmp = tmp->next;
-    }
-    cout << endl;
-   
+    cout << -1 << endl;
 }
 int main()
 {
@@ -63,11 +54,12 @@ int main()
                 break;
             }
             insert_to_linked_list(head, tail, v);
-            int search;
-            cin>>search;
-            search_in_linked_list(head, search);
         }
-        // print_linekd_list(head);
+        int x;
+        cin >> x;
+        search_in_linked_list(head, x);
+  
+
     }
 
     return 0;
