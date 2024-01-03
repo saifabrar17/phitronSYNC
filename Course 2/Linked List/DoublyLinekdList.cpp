@@ -14,22 +14,22 @@ public:
         this->prev = prev;
     }
 };
-// void insert_head(Node *&head, Node *&tail, int val)
-// {
-//     Node *newNode = new Node(val);
+void insert_head(Node *&head, Node *&tail, int val)
+{
+    Node *newNode = new Node(val);
 
-//     if (head == NULL)
-//     {
-//         head = newNode;
-//         tail = newNode;
-//         // cout << "Inserted Head" << endl;
-//         return;
-//     }
-//     newNode->next = head;
-//     head->prev = newNode;
-//     head = newNode;
-//     // cout << "Inserted" << endl;
-// }
+    if (head == NULL)
+    {
+        head = newNode;
+        tail = newNode;
+        // cout << "Inserted Head" << endl;
+        return;
+    }
+    newNode->next = head;
+    head->prev = newNode;
+    head = newNode;
+    // cout << "Inserted" << endl;
+}
 void insert_tail(Node *&head, Node *&tail, int val)
 {
     Node *newNode = new Node(val);
@@ -43,20 +43,20 @@ void insert_tail(Node *&head, Node *&tail, int val)
     newNode->prev = tail;
     tail = tail->next;
 }
-// void insert_at_position(Node *head, int pos, int val)
-// {
-//     Node *newNode = new Node(val);
-//     Node *tmp = head;
+void insert_at_position(Node *head, int pos, int val)
+{
+    Node *newNode = new Node(val);
+    Node *tmp = head;
 
-//     for (int i = 1; i < pos - 1; i++)
-//     {
-//         tmp = tmp->next;
-//     }
-//     newNode->next = tmp->next;
-//     tmp->next = newNode;
-//     newNode->next->prev = newNode;
-//     newNode->prev = tmp;
-// }
+    for (int i = 1; i < pos - 1; i++)
+    {
+        tmp = tmp->next;
+    }
+    newNode->next = tmp->next;
+    tmp->next = newNode;
+    newNode->next->prev = newNode;
+    newNode->prev = tmp;
+}
 void print_normal(Node *head)
 {
     Node *tmp = head;
@@ -67,18 +67,18 @@ void print_normal(Node *head)
     }
     cout << endl;
 }
-// int size(Node *head)
-// {
-//     int cnt = 0;
-//     Node *tmp = head;
-//     while (tmp != NULL)
-//     {
-//         /* code */
-//         cnt++;
-//         tmp = tmp->next;
-//     }
-//     return cnt;
-// }
+int size(Node *head)
+{
+    int cnt = 0;
+    Node *tmp = head;
+    while (tmp != NULL)
+    {
+        /* code */
+        cnt++;
+        tmp = tmp->next;
+    }
+    return cnt;
+}
 
 int main()
 {
