@@ -13,11 +13,12 @@ public:
         this->right = NULL;
     }
 };
-int sum = 0;
+vector<int> v;
 TreeNode *inputTree()
 {
     int val;
     cin >> val;
+
     TreeNode *root;
     if (val == -1)
         root = NULL;
@@ -31,12 +32,14 @@ TreeNode *inputTree()
         TreeNode *p = q.front();
         q.pop();
 
-        
         int l, r;
         cin >> l >> r;
-        if(l != -1 || r != -1){
-            sum += p->val;
+
+        if (l == -1 && r == -1)
+        {
+            v.push_back(p->val);
         }
+
         TreeNode *left, *right;
         if (l == -1)
             left = NULL;
@@ -61,6 +64,12 @@ TreeNode *inputTree()
 int main()
 {
     TreeNode *root = inputTree();
-    cout << sum;
+    sort(v.begin(), v.end());
+    reverse(v.begin(), v.end());
+    for (int reversedVector : v)
+    {
+        cout << reversedVector << " ";
+    }
+
     return 0;
 }
