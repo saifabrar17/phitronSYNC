@@ -1,56 +1,60 @@
 #include <bits/stdc++.h>
 using namespace std;
-class Node
+class TreeNode
 {
 public:
     int val;
-    Node *left;
-    Node *right;
-    Node(int val)
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int val)
     {
         this->val = val;
         this->left = NULL;
         this->right = NULL;
     }
 };
-int n = 0;
-int maxHeight(Node *root)
+
+int cntHeight = 0;
+
+int maxHeight(TreeNode *root)
 {
-    if (!root)
+    if (root == NULL)
+    {
         return 0;
-    n++;
+    }
+    cntHeight++;
     return max(maxHeight(root->left), maxHeight(root->right)) + 1;
 }
 
-Node *input()
+TreeNode *inputTree()
 {
     int val;
     cin >> val;
-    Node *root;
+    TreeNode *root;
     if (val == -1)
         root = NULL;
     else
-        root = new Node(val);
-    queue<Node *> q;
+        root = new TreeNode(val);
+    queue<TreeNode *> q;
     if (root)
         q.push(root);
     while (!q.empty())
     {
-        Node *p = q.front();
+        TreeNode *p = q.front();
         q.pop();
 
         int l, r;
         cin >> l >> r;
-        Node *left, *right;
+        TreeNode *left, *right;
         if (l == -1)
             left = NULL;
         else
-            left = new Node(l);
+            left = new TreeNode(l);
 
         if (r == -1)
             right = NULL;
         else
-            right = new Node(r);
+            right = new TreeNode(r);
 
         p->left = left;
         p->right = right;
@@ -64,8 +68,17 @@ Node *input()
 }
 int main()
 {
-    Node *root = input();
+    TreeNode *root = inputTree();
+
     int height = maxHeight(root);
-    (n == pow(2, height) - 1) ? cout << "YES" << endl : cout << "NO" << endl;
+    if (cntHeight == pow(2, height) - 1)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
+    }
+
     return 0;
 }
