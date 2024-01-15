@@ -1,14 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void insert_heap(vector<int> &v, int x)
+void insertIntoHeap(vector<int> &v, int x)
 {
     v.push_back(x);
     int cur = v.size() - 1;
 
     while (cur != 0)
     {
-        /* code */
         int pr = (cur - 1) / 2;
         if (v[pr] > v[cur])
             swap(v[pr], v[cur]);
@@ -18,7 +17,7 @@ void insert_heap(vector<int> &v, int x)
     }
 }
 
-void delete_heap(vector<int> &v)
+void deleteFromHeap(vector<int> &v)
 {
     v[0] = v[v.size() - 1];
     v.pop_back();
@@ -82,7 +81,6 @@ int main()
 
         while (cur_idx != 0)
         {
-            /* code */
             long long parent = (cur_idx - 1) / 2;
             if (v[parent] > v[cur_idx])
                 swap(v[parent], v[cur_idx]);
@@ -102,7 +100,7 @@ int main()
         {
             long long y;
             cin >> y;
-            insert_heap(v, y);
+            insertIntoHeap(v, y);
             cout << v[0] << endl;
         }
         else if (x == 1)
@@ -118,7 +116,7 @@ int main()
                 cout << "Empty" << endl;
             else
             {
-                delete_heap(v);
+                deleteFromHeap(v);
                 if (v.empty())
                     cout << "Empty" << endl;
                 else

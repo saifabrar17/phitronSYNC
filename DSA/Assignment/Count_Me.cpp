@@ -2,10 +2,10 @@
 using namespace std;
 int main()
 {
-    int t;
-    cin >> t;
+    int testCase;
+    cin >> testCase;
     cin.ignore();
-    while (t--)
+    while (testCase--)
     {
         map<string, int> mp;
         string s;
