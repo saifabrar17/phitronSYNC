@@ -27,7 +27,22 @@ void insert_tail(Node *&head, Node *&tail, int val)
     newNode->prev = tail;
     tail = tail->next;
 }
-
+void isPalindrome(Node *head, Node *tail)
+{
+    Node *tmpHead = head;
+    Node *tmpTail = tail;
+    int flag = 0;
+    while (tmpHead != tmpTail && tmpTail->next != tmpHead)
+    {
+        if (tmpHead->val != tmpTail->val)
+        {
+            flag = 1;
+        }
+        tmpHead = tmpHead->next;
+        tmpTail = tmpTail->prev;
+    }
+    flag ? cout << "NO" << endl : cout << "Yes" << endl;
+}
 int main()
 {
 
